@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {DEFAULT} from '../default';
+import {ThemeContext} from '../themeContext';
 
 const styles = StyleSheet.create({
   dayWrapper: {
@@ -19,38 +19,43 @@ const styles = StyleSheet.create({
   },
 });
 
-const Day = props => {
-  const {
-    selected,
-    onDayPress = () => {},
-    day,
-    activeDayColor = DEFAULT.activeDayColor,
-    activeDayBackgroundColor = DEFAULT.activeDayBackgroundColor,
-  } = props;
+class Day extends Component {
+  state = {};
+  render() {
+    const {
+      selected,
+      onDayPress = () => {},
+      day,
+      activeDayColor = this.context.activeDayColor,
+      activeDayBackgroundColor = this.context.activeDayBackgroundColor,
+    } = this.props;
 
-  const dayContainerStyle = [styles.dayContainer];
-  const dayTextStyle = [
-    styles.dayTextStyle,
-    {color: selected ? activeDayColor : DEFAULT.dayColor},
-  ];
+    const dayContainerStyle = [styles.dayContainer];
+    const dayTextStyle = [
+      styles.dayTextStyle,
+      {color: selected ? activeDayColor : this.context.dayColor},
+    ];
 
-  if (day) {
-    dayContainerStyle.push({
-      backgroundColor: selected
-        ? activeDayBackgroundColor
-        : DEFAULT.dayBackgroundColor,
-    });
+    if (day) {
+      dayContainerStyle.push({
+        backgroundColor: selected
+          ? activeDayBackgroundColor
+          : this.context.dayBackgroundColor,
+      });
+    }
+
+    return (
+      <View style={styles.dayWrapper}>
+        <TouchableOpacity
+          onPress={() => onDayPress(day)}
+          style={dayContainerStyle}>
+          <Text style={dayTextStyle}>{day}</Text>
+        </TouchableOpacity>
+      </View>
+    );
   }
+}
 
-  return (
-    <View style={styles.dayWrapper}>
-      <TouchableOpacity
-        onPress={() => onDayPress(day)}
-        style={dayContainerStyle}>
-        <Text style={dayTextStyle}>{day}</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+Day.contextType = ThemeContext;
 
 export default Day;

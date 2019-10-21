@@ -32,7 +32,6 @@ const App = () => {
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Text style={styles.title}>Date Picker</Text>
           <DatePicker onDateChange={obj => console.log(obj)} />
-          <Text style={styles.title}>Time Picker</Text>
         </ScrollView>
       </SafeAreaView>
     </>

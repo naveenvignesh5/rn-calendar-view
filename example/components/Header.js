@@ -1,18 +1,18 @@
 import React, {PureComponent} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {DEFAULT} from '../default';
+import {ThemeContext} from '../themeContext';
 
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 5,
+    width: '100%',
   },
   button: {
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: DEFAULT.dayBackgroundColor,
     borderRadius: 10,
   },
   buttonText: {
@@ -22,22 +22,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    backgroundColor: DEFAULT.dayBackgroundColor,
     borderRadius: 10,
   },
   monthText: {
-    color: DEFAULT.dayColor,
     fontWeight: 'bold',
   },
   year: {
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    backgroundColor: DEFAULT.dayBackgroundColor,
     borderRadius: 10,
   },
   yearText: {
-    color: DEFAULT.dayColor,
     fontWeight: 'bold',
   },
 });
@@ -49,23 +45,42 @@ class Header extends PureComponent {
 
     month = month < 10 ? `0${month}` : month;
 
+    const buttonStyle = [
+      {backgroundColor: this.context.dayBackgroundColor},
+      styles.button,
+    ];
+
     return (
       <View style={styles.header}>
-        <TouchableOpacity style={styles.button} onPress={onPrevPress}>
+        <TouchableOpacity style={buttonStyle} onPress={onPrevPress}>
           <Text style={styles.buttonText}>Prev</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.month}>
-          <Text style={styles.monthText}>{month}</Text>
+        <TouchableOpacity
+          style={[
+            {backgroundColor: this.context.dayBackgroundColor},
+            styles.month,
+          ]}>
+          <Text style={[{color: this.context.dayColor}, styles.monthText]}>
+            {month}
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.year}>
-          <Text style={styles.yearText}>{year}</Text>
+        <TouchableOpacity
+          style={[
+            {backgroundColor: this.context.dayBackgroundColor},
+            styles.year,
+          ]}>
+          <Text style={[{color: this.context.dayColor}, styles.yearText]}>
+            {year}
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={onNextPress}>
+        <TouchableOpacity style={buttonStyle} onPress={onNextPress}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
+
+Header.contextType = ThemeContext;
 
 export default Header;

@@ -1,8 +1,18 @@
-import React, {Component, createContext} from 'react';
+import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import Day from './Day';
 import Header from './Header';
-import {DEFAULT} from '../default';
+
+import {ThemeContext, DEFAULT_THEME} from '../themeContext';
+import {DAYS_SHORT} from './constants';
+import {MonthModal, YearModal} from './Modals';
+
+const DEFAULT = {
+  dayBackgroundColor: '#FAFAFA',
+  dayColor: '#333333',
+  activeDayBackgroundColor: '#000AAA',
+  activeDayColor: '#FFF',
+};
 
 const styles = StyleSheet.create({
   row: {
@@ -10,11 +20,12 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flexDirection: 'row',
-    backgroundColor: DEFAULT.dayBackgroundColor,
+    backgroundColor: DEFAULT.activeDayBackgroundColor,
     borderRadius: 10,
+    marginVertical: 10,
   },
   headerTextContainer: {
-    flex: 1,
+    // flex: 1,
     padding: 5,
     alignItems: 'center',
     justifyContent: 'center',
@@ -22,12 +33,10 @@ const styles = StyleSheet.create({
     height: 50,
   },
   headerText: {
+    color: DEFAULT.activeDayColor,
     fontWeight: 'bold',
-    // fontSize: 11,
   },
 });
-
-const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
 
 class DatePicker extends Component {
   static defaultProps = {
@@ -43,10 +52,15 @@ class DatePicker extends Component {
       year: this.today.getFullYear(),
     };
 
-    this.propContext = createContext({
-      onPrevPress: this.onPrevPress,
-      onNextPress: this.onNextPress,
-    });
+    this.theme = {
+      dayBackgroundColor:
+        this.props.dayBackgroundColor || DEFAULT_THEME.dayBackgroundColor,
+      dayColor: this.props.dayColor || DEFAULT_THEME.dayColor,
+      activeDayBackgroundColor:
+        this.props.activeDayBackgroundColor ||
+        DEFAULT_THEME.activeDayBackgroundColor,
+      activeDayColor: this.props.activeDayColor || DEFAULT_THEME.activeDayColor,
+    };
   }
 
   onPrevPress = () => {
@@ -140,7 +154,7 @@ class DatePicker extends Component {
 
     calender.unshift(
       <View key="label" style={styles.headerContainer}>
-        {DAYS.map((day, i) => (
+        {DAYS_SHORT.map((day, i) => (
           <View key={`label_${i}`} style={styles.headerTextContainer}>
             <Text style={styles.headerText}>{day}</Text>
           </View>
@@ -154,15 +168,19 @@ class DatePicker extends Component {
   render() {
     const {month, year} = this.state;
     return (
-      <View>
-        <Header
-          onNextPress={this.onNextPress}
-          onPrevPress={this.onPrevPress}
-          month={month}
-          year={year}
-        />
-        {this.renderCalendar(month, year)}
-      </View>
+      <>
+        <ThemeContext.Provider value={this.theme}>
+          <Header
+            onNextPress={this.onNextPress}
+            onPrevPress={this.onPrevPress}
+            month={month}
+            year={year}
+          />
+          {this.renderCalendar(month, year)}
+          <MonthModal isVisible={true} />
+          <YearModal />
+        </ThemeContext.Provider>
+      </>
     );
   }
 }
