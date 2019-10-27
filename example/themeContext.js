@@ -5,6 +5,7 @@ const DEFAULT_THEME = {
   dayColor: '#333333',
   activeDayBackgroundColor: '#000AAA',
   activeDayColor: '#FFF',
+  primaryColor: '#FD8201',
 };
 
 const ThemeContext = createContext(DEFAULT_THEME);

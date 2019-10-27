@@ -1,0 +1,22 @@
+{
+  "name": "rn-calendar",
+  "version": "1.0.0",
+  "description": "Simple Calendar Component for React Native",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveenvignesh5/rn-time-picker.git"
+  },
+  "author": "Naveen Vignesh.B",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naveenvignesh5/rn-time-picker/issues"
+  },
+  "homepage": "https://github.com/naveenvignesh5/rn-time-picker#readme"
+}
