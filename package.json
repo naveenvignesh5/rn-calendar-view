@@ -1,6 +1,6 @@
 {
-  "name": "rn-calendar",
-  "version": "1.0.0",
+  "name": "react-native-calendar",
+  "version": "0.0.1",
   "description": "Simple Calendar Component for React Native",
   "main": "index.js",
   "directories": {
@@ -12,6 +12,22 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/naveenvignesh5/rn-time-picker.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-native-component",
+    "calendar",
+    "rn-calendar",
+    "date-picker",
+    "time"
+  ],
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react-native-modal": "^11.4.0"
+  },
+  "peerDependencies": {
+    "react": "16.9.0",
+    "react-native": "0.61.2"
   },
   "author": "Naveen Vignesh.B",
   "license": "MIT",

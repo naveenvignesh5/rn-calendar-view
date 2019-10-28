@@ -31,7 +31,10 @@ const App = () => {
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Text style={styles.title}>Date Picker</Text>
-          <DatePicker dayBackgroundColor="#FD8201" onDateChange={obj => console.log(obj)} />
+          <DatePicker
+            dayBackgroundColor="#FD8201"
+            onDateChange={obj => console.log(obj)}
+          />
         </ScrollView>
       </SafeAreaView>
     </>
