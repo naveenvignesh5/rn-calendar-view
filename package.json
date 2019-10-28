@@ -1,6 +1,6 @@
 {
   "name": "rn-calendar-view",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple Calendar Component for React Native",
   "main": "index.js",
   "directories": {
