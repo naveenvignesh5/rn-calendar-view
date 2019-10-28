@@ -1,11 +1,10 @@
 import {createContext} from 'react';
 
 const DEFAULT_THEME = {
-  dayBackgroundColor: '#FAFAFA',
-  dayColor: '#333333',
-  activeDayBackgroundColor: '#000AAA',
-  activeDayColor: '#FFF',
-  primaryColor: '#FD8201',
+  primaryColor: '#FAFAFA',
+  primaryTextColor: '#333333',
+  secondaryColor: '#000AAA',
+  secondaryTextColor: '#FFFFFF',
 };
 
 const ThemeContext = createContext(DEFAULT_THEME);

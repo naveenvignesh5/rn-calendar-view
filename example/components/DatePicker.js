@@ -7,20 +7,13 @@ import {ThemeContext, DEFAULT_THEME} from '../themeContext';
 import {DAYS_SHORT} from './constants';
 import {MonthModal, YearModal} from './Modals';
 
-const DEFAULT = {
-  dayBackgroundColor: '#FAFAFA',
-  dayColor: '#333333',
-  activeDayBackgroundColor: '#000AAA',
-  activeDayColor: '#FFF',
-};
-
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
   headerContainer: {
     flexDirection: 'row',
-    backgroundColor: DEFAULT.activeDayBackgroundColor,
+    backgroundColor: DEFAULT_THEME.secondaryColor,
     borderRadius: 10,
     marginVertical: 10,
   },
@@ -33,7 +26,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   headerText: {
-    color: DEFAULT.activeDayColor,
+    color: DEFAULT_THEME.secondaryTextColor,
     fontWeight: 'bold',
   },
 });
@@ -54,16 +47,13 @@ class DatePicker extends Component {
       yearModalVisisble: false,
     };
 
-    console.log(this.state);
-
     this.theme = {
-      dayBackgroundColor:
-        this.props.dayBackgroundColor || DEFAULT_THEME.dayBackgroundColor,
-      dayColor: this.props.dayColor || DEFAULT_THEME.dayColor,
-      activeDayBackgroundColor:
-        this.props.activeDayBackgroundColor ||
-        DEFAULT_THEME.activeDayBackgroundColor,
-      activeDayColor: this.props.activeDayColor || DEFAULT_THEME.activeDayColor,
+      primaryColor: this.props.primaryColor || DEFAULT_THEME.primaryColor,
+      primaryTextColor:
+        this.props.primaryTextColor || DEFAULT_THEME.primaryTextColor,
+      secondaryColor: this.props.secondaryColor || DEFAULT_THEME.secondaryColor,
+      secondaryTextColor:
+        this.props.secondaryTextColor || DEFAULT_THEME.secondaryTextColor,
     };
   }
 

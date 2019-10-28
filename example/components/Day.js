@@ -22,25 +22,24 @@ const styles = StyleSheet.create({
 class Day extends Component {
   state = {};
   render() {
-    const {
-      selected,
-      onDayPress = () => {},
-      day,
-      activeDayColor = this.context.activeDayColor,
-      activeDayBackgroundColor = this.context.activeDayBackgroundColor,
-    } = this.props;
+    const {selected, onDayPress = () => {}, day} = this.props;
 
     const dayContainerStyle = [styles.dayContainer];
+
     const dayTextStyle = [
       styles.dayTextStyle,
-      {color: selected ? activeDayColor : this.context.dayColor},
+      {
+        color: selected
+          ? this.context.secondaryTextColor
+          : this.context.primaryTextColor,
+      },
     ];
 
     if (day) {
       dayContainerStyle.push({
         backgroundColor: selected
-          ? activeDayBackgroundColor
-          : this.context.dayBackgroundColor,
+          ? this.context.secondaryColor
+          : this.context.primaryColor,
       });
     }
 

@@ -53,7 +53,7 @@ class Header extends PureComponent {
     month = month < 10 ? `0${month}` : month;
 
     const buttonStyle = [
-      {backgroundColor: this.context.dayBackgroundColor},
+      {backgroundColor: this.context.primaryColor},
       styles.button,
     ];
 
@@ -64,21 +64,17 @@ class Header extends PureComponent {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={onMonthPress}
-          style={[
-            {backgroundColor: this.context.dayBackgroundColor},
-            styles.month,
-          ]}>
-          <Text style={[{color: this.context.dayColor}, styles.monthText]}>
+          style={[{backgroundColor: this.context.primaryColor}, styles.month]}>
+          <Text
+            style={[{color: this.context.primaryTextColor}, styles.monthText]}>
             {month}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={onYearPress}
-          style={[
-            {backgroundColor: this.context.dayBackgroundColor},
-            styles.year,
-          ]}>
-          <Text style={[{color: this.context.dayColor}, styles.yearText]}>
+          style={[{backgroundColor: this.context.primaryColor}, styles.year]}>
+          <Text
+            style={[{color: this.context.primaryTextColor}, styles.yearText]}>
             {year}
           </Text>
         </TouchableOpacity>

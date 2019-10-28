@@ -81,7 +81,7 @@ class MonthModal extends Component {
                 style={[
                   styles.monthButton,
                   i === selectedMonth - 1
-                    ? {backgroundColor: this.context.activeDayBackgroundColor}
+                    ? {backgroundColor: this.context.secondaryColor}
                     : null,
                 ]}>
                 <Text
@@ -89,7 +89,7 @@ class MonthModal extends Component {
                   style={[
                     styles.monthText,
                     i === selectedMonth - 1
-                      ? {color: this.context.activeDayColor}
+                      ? {color: this.context.secondaryTextColor}
                       : null,
                   ]}>
                   {day}
@@ -140,8 +140,8 @@ class YearModal extends Component {
         {
           backgroundColor:
             selectedYear === i
-              ? this.context.activeDayBackgroundColor
-              : this.context.dayBackgroundColor,
+              ? this.context.secondaryColor
+              : this.context.primaryColor,
           marginTop: 10,
         },
       ];
@@ -151,8 +151,8 @@ class YearModal extends Component {
         {
           color:
             selectedYear === i
-              ? this.context.activeDayColor
-              : this.context.dayColor,
+              ? this.context.secondaryTextColor
+              : this.context.primaryTextColor,
           width: '100%',
         },
       ];
@@ -177,12 +177,15 @@ class YearModal extends Component {
 
     const buttonStyle = [
       styles.button,
-      {backgroundColor: this.context.activeDayBackgroundColor},
+      {backgroundColor: this.context.secondaryColor},
     ];
 
     const buttonTextSyle = [styles.buttonText, {color: '#fff'}];
 
-    const yearLabelText = [styles.yearLabel, {color: this.context.dayColor}];
+    const yearLabelText = [
+      styles.yearLabel,
+      {color: this.context.primaryTextColor},
+    ];
 
     const {yearEnd, yearStart} = this.state;
 
