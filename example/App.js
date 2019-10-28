@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Alert
 } from 'react-native';
-import DatePicker from './components/DatePicker';
+// import DatePicker from './components/DatePicker';
+import { Calendar } from 'rn-calendar-view';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +33,7 @@ const App = () => {
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Text style={styles.title}>Date Picker</Text>
-          <DatePicker
+          <Calendar
             onDateChange={obj => Alert.alert('You have picked', `${obj.date}-${obj.month}-${obj.year}`)}
           />
         </ScrollView>

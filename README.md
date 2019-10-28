@@ -99,4 +99,4 @@ export default App;
 ```
 
 ##### **Output**
-![](demo.gif)
+![](/demo.gif)
