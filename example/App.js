@@ -5,6 +5,7 @@ import {
   Text,
   ScrollView,
   StyleSheet,
+  Alert
 } from 'react-native';
 import DatePicker from './components/DatePicker';
 
@@ -32,8 +33,7 @@ const App = () => {
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Text style={styles.title}>Date Picker</Text>
           <DatePicker
-            dayBackgroundColor="#FD8201"
-            onDateChange={obj => console.log(obj)}
+            onDateChange={obj => Alert.alert('You have picked', `${obj.date}-${obj.month}-${obj.year}`)}
           />
         </ScrollView>
       </SafeAreaView>
