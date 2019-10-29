@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Alert
 } from 'react-native';
-// import DatePicker from './components/DatePicker';
+
 import { Calendar } from 'rn-calendar-view';
 
 const styles = StyleSheet.create({
