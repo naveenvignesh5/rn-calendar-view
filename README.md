@@ -2,6 +2,12 @@
 
 Simple Calendar based Date picker for react native.
 
+#### **Installation**
+
+```shell
+npm i -s rn-calendar-view
+```
+
 #### **Props**
 
 <table style="text-align: center;">
@@ -99,4 +105,5 @@ export default App;
 ```
 
 ##### **Output**
-![](/demo.gif)
+
+<img src="https://raw.githubusercontent.com/naveenvignesh5/rn-calendar-view/master/demo.gif" width="220px">
