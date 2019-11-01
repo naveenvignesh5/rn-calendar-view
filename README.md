@@ -49,9 +49,9 @@ npm i -s rn-calendar-view
   <tr>
     <td>onDateChange</td>
     <td>Function</td>
-    <td>No</td>
-    <td>#FFFFFF</td>
-    <td>Text Color for buttons, dates on active state</td>
+    <td>Yes</td>
+    <td>N/A</td>
+    <td>Call Back Function on selecting a date</td>
   </tr>
 </table>
 
